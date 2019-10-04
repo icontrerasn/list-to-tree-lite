@@ -1,3 +1,13 @@
+
+function getNestedKey(select, object) {
+  let select = "contact.phone";
+  let value = object;
+  select.split(".").forEach(function(val){
+    value = value[val];
+  });
+  return value
+}
+
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         define([], factory);
@@ -19,12 +29,12 @@
 
       for(var i = 0, length = data.length; i < length; i++) {
         item = data[i];
-        id = item[ID_KEY];
-        parentId = item[PARENT_KEY] || 0;
+        id = getNestedKey(ID_KEY, item);
+        parentId = getNestedKey(PARENT_KEY, item) || 0;
         // every item may have children
         childrenOf[id] = childrenOf[id] || [];
         // init its children
-        item[CHILDREN_KEY] = childrenOf[id];
+        getNestedKey(CHILDREN_KEY, item) = childrenOf[id];
         if (parentId != 0) {
           // init its parent's children object
           childrenOf[parentId] = childrenOf[parentId] || [];
