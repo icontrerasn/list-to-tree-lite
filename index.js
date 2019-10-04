@@ -1,6 +1,5 @@
 
 function getNestedKey(select, object) {
-  let select = "contact.phone";
   let value = object;
   select.split(".").forEach(function(val){
     value = value[val];
