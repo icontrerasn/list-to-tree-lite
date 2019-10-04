@@ -1,6 +1,6 @@
 {
   "name": "list-to-tree-lite",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "convert list to tree-list",
   "main": "index.js",
   "scripts": {
