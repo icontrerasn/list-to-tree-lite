@@ -21,7 +21,7 @@ function getNestedKey(select, object) {
       options = options || {};
       var ID_KEY = options.idKey || 'id';
       var PARENT_KEY = options.parentKey || 'parent';
-      var CHILDREN_KEY = 'children';
+      var CHILDREN_KEY = options.parentKey || 'parent';
       
       var tree = [], childrenOf = {};
       var item, id, parentId;
